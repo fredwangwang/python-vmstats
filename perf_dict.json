@@ -1,0 +1,2254 @@
+{
+  "cpu.usage.none": {
+    "key": 1,
+    "summary": "CPU usage as a percentage during the interval"
+  },
+  "cpu.usage.average": {
+    "key": 2,
+    "summary": "CPU usage as a percentage during the interval"
+  },
+  "cpu.usage.minimum": {
+    "key": 3,
+    "summary": "CPU usage as a percentage during the interval"
+  },
+  "cpu.usage.maximum": {
+    "key": 4,
+    "summary": "CPU usage as a percentage during the interval"
+  },
+  "cpu.usagemhz.none": {
+    "key": 5,
+    "summary": "CPU usage in megahertz during the interval"
+  },
+  "cpu.usagemhz.average": {
+    "key": 6,
+    "summary": "CPU usage in megahertz during the interval"
+  },
+  "cpu.usagemhz.minimum": {
+    "key": 7,
+    "summary": "CPU usage in megahertz during the interval"
+  },
+  "cpu.usagemhz.maximum": {
+    "key": 8,
+    "summary": "CPU usage in megahertz during the interval"
+  },
+  "cpu.reservedCapacity.average": {
+    "key": 9,
+    "summary": "Total CPU capacity reserved by virtual machines"
+  },
+  "cpu.system.summation": {
+    "key": 10,
+    "summary": "Amount of time spent on system processes on each virtual CPU in the virtual machine"
+  },
+  "cpu.wait.summation": {
+    "key": 11,
+    "summary": "Total CPU time spent in wait state"
+  },
+  "cpu.ready.summation": {
+    "key": 12,
+    "summary": "Time that the virtual machine was ready, but could not get scheduled to run on the physical CPU during last measurement interval"
+  },
+  "cpu.idle.summation": {
+    "key": 13,
+    "summary": "Total time that the CPU spent in an idle state"
+  },
+  "cpu.used.summation": {
+    "key": 14,
+    "summary": "Total CPU usage"
+  },
+  "cpu.capacity.provisioned.average": {
+    "key": 15,
+    "summary": "Capacity in MHz of the physical CPU cores"
+  },
+  "cpu.capacity.entitlement.average": {
+    "key": 16,
+    "summary": "CPU resources devoted by the ESXi scheduler to the virtual machines and resource pools"
+  },
+  "cpu.capacity.usage.average": {
+    "key": 17,
+    "summary": "CPU usage as a percent during the interval."
+  },
+  "cpu.capacity.demand.average": {
+    "key": 18,
+    "summary": "The amount of CPU resources a VM would use if there were no CPU contention or CPU limit"
+  },
+  "cpu.capacity.contention.average": {
+    "key": 19,
+    "summary": "Percent of time the VM is unable to run because it is contending for access to the physical CPU(s)"
+  },
+  "cpu.corecount.provisioned.average": {
+    "key": 20,
+    "summary": "The number of virtual processors provisioned to the entity."
+  },
+  "cpu.corecount.usage.average": {
+    "key": 21,
+    "summary": "The number of virtual processors running on the host."
+  },
+  "cpu.corecount.contention.average": {
+    "key": 22,
+    "summary": "Time the VM vCPU is ready to run, but is unable to run due to co-scheduling constraints"
+  },
+  "mem.usage.none": {
+    "key": 23,
+    "summary": "Percentage of host physical memory that has been consumed"
+  },
+  "mem.usage.average": {
+    "key": 24,
+    "summary": "Percentage of host physical memory that has been consumed"
+  },
+  "mem.usage.minimum": {
+    "key": 25,
+    "summary": "Percentage of host physical memory that has been consumed"
+  },
+  "mem.usage.maximum": {
+    "key": 26,
+    "summary": "Percentage of host physical memory that has been consumed"
+  },
+  "mem.reservedCapacity.average": {
+    "key": 27,
+    "summary": "Memory reservation consumed by powered-on virtual machines"
+  },
+  "mem.granted.none": {
+    "key": 28,
+    "summary": "Amount of host physical memory or physical memory that is mapped for a virtual machine or a host"
+  },
+  "mem.granted.average": {
+    "key": 29,
+    "summary": "Amount of host physical memory or physical memory that is mapped for a virtual machine or a host"
+  },
+  "mem.granted.minimum": {
+    "key": 30,
+    "summary": "Amount of host physical memory or physical memory that is mapped for a virtual machine or a host"
+  },
+  "mem.granted.maximum": {
+    "key": 31,
+    "summary": "Amount of host physical memory or physical memory that is mapped for a virtual machine or a host"
+  },
+  "mem.active.none": {
+    "key": 32,
+    "summary": "Amount of guest physical memory that is being actively read or written by guest. Activeness is estimated by ESXi"
+  },
+  "mem.active.average": {
+    "key": 33,
+    "summary": "Amount of guest physical memory that is being actively read or written by guest. Activeness is estimated by ESXi"
+  },
+  "mem.active.minimum": {
+    "key": 34,
+    "summary": "Amount of guest physical memory that is being actively read or written by guest. Activeness is estimated by ESXi"
+  },
+  "mem.active.maximum": {
+    "key": 35,
+    "summary": "Amount of guest physical memory that is being actively read or written by guest. Activeness is estimated by ESXi"
+  },
+  "mem.shared.none": {
+    "key": 36,
+    "summary": "Amount of guest physical memory that is shared within a single virtual machine or across virtual machines"
+  },
+  "mem.shared.average": {
+    "key": 37,
+    "summary": "Amount of guest physical memory that is shared within a single virtual machine or across virtual machines"
+  },
+  "mem.shared.minimum": {
+    "key": 38,
+    "summary": "Amount of guest physical memory that is shared within a single virtual machine or across virtual machines"
+  },
+  "mem.shared.maximum": {
+    "key": 39,
+    "summary": "Amount of guest physical memory that is shared within a single virtual machine or across virtual machines"
+  },
+  "mem.zero.none": {
+    "key": 40,
+    "summary": "Guest physical memory pages whose content is 0x00"
+  },
+  "mem.zero.average": {
+    "key": 41,
+    "summary": "Guest physical memory pages whose content is 0x00"
+  },
+  "mem.zero.minimum": {
+    "key": 42,
+    "summary": "Guest physical memory pages whose content is 0x00"
+  },
+  "mem.zero.maximum": {
+    "key": 43,
+    "summary": "Guest physical memory pages whose content is 0x00"
+  },
+  "mem.unreserved.none": {
+    "key": 44,
+    "summary": "Amount by which reservation can be raised"
+  },
+  "mem.unreserved.average": {
+    "key": 45,
+    "summary": "Amount by which reservation can be raised"
+  },
+  "mem.unreserved.minimum": {
+    "key": 46,
+    "summary": "Amount by which reservation can be raised"
+  },
+  "mem.unreserved.maximum": {
+    "key": 47,
+    "summary": "Amount by which reservation can be raised"
+  },
+  "mem.swapused.none": {
+    "key": 48,
+    "summary": "Swap storage space consumed"
+  },
+  "mem.swapused.average": {
+    "key": 49,
+    "summary": "Swap storage space consumed"
+  },
+  "mem.swapused.minimum": {
+    "key": 50,
+    "summary": "Swap storage space consumed"
+  },
+  "mem.swapused.maximum": {
+    "key": 51,
+    "summary": "Swap storage space consumed"
+  },
+  "mem.swapunreserved.none": {
+    "key": 52,
+    "summary": "swapunreserved"
+  },
+  "mem.swapunreserved.average": {
+    "key": 53,
+    "summary": "swapunreserved"
+  },
+  "mem.swapunreserved.minimum": {
+    "key": 54,
+    "summary": "swapunreserved"
+  },
+  "mem.swapunreserved.maximum": {
+    "key": 55,
+    "summary": "swapunreserved"
+  },
+  "mem.sharedcommon.none": {
+    "key": 56,
+    "summary": "Amount of host physical memory that backs shared guest physical memory (Shared)"
+  },
+  "mem.sharedcommon.average": {
+    "key": 57,
+    "summary": "Amount of host physical memory that backs shared guest physical memory (Shared)"
+  },
+  "mem.sharedcommon.minimum": {
+    "key": 58,
+    "summary": "Amount of host physical memory that backs shared guest physical memory (Shared)"
+  },
+  "mem.sharedcommon.maximum": {
+    "key": 59,
+    "summary": "Amount of host physical memory that backs shared guest physical memory (Shared)"
+  },
+  "mem.heap.none": {
+    "key": 60,
+    "summary": "Virtual address space of ESXi that is dedicated to its heap"
+  },
+  "mem.heap.average": {
+    "key": 61,
+    "summary": "Virtual address space of ESXi that is dedicated to its heap"
+  },
+  "mem.heap.minimum": {
+    "key": 62,
+    "summary": "Virtual address space of ESXi that is dedicated to its heap"
+  },
+  "mem.heap.maximum": {
+    "key": 63,
+    "summary": "Virtual address space of ESXi that is dedicated to its heap"
+  },
+  "mem.heapfree.none": {
+    "key": 64,
+    "summary": "Free address space in the heap of ESXi. This is less than or equal to Heap"
+  },
+  "mem.heapfree.average": {
+    "key": 65,
+    "summary": "Free address space in the heap of ESXi. This is less than or equal to Heap"
+  },
+  "mem.heapfree.minimum": {
+    "key": 66,
+    "summary": "Free address space in the heap of ESXi. This is less than or equal to Heap"
+  },
+  "mem.heapfree.maximum": {
+    "key": 67,
+    "summary": "Free address space in the heap of ESXi. This is less than or equal to Heap"
+  },
+  "mem.state.latest": {
+    "key": 68,
+    "summary": "Current memory availability state of ESXi. Possible values are high, clear, soft, hard, low. The state value determines the techniques used for memory reclamation from virtual machines"
+  },
+  "mem.swapped.none": {
+    "key": 69,
+    "summary": "Amount of guest physical memory that is swapped out to the swap space"
+  },
+  "mem.swapped.average": {
+    "key": 70,
+    "summary": "Amount of guest physical memory that is swapped out to the swap space"
+  },
+  "mem.swapped.minimum": {
+    "key": 71,
+    "summary": "Amount of guest physical memory that is swapped out to the swap space"
+  },
+  "mem.swapped.maximum": {
+    "key": 72,
+    "summary": "Amount of guest physical memory that is swapped out to the swap space"
+  },
+  "mem.swaptarget.none": {
+    "key": 73,
+    "summary": "Amount of memory that ESXi needs to reclaim by swapping"
+  },
+  "mem.swaptarget.average": {
+    "key": 74,
+    "summary": "Amount of memory that ESXi needs to reclaim by swapping"
+  },
+  "mem.swaptarget.minimum": {
+    "key": 75,
+    "summary": "Amount of memory that ESXi needs to reclaim by swapping"
+  },
+  "mem.swaptarget.maximum": {
+    "key": 76,
+    "summary": "Amount of memory that ESXi needs to reclaim by swapping"
+  },
+  "mem.swapIn.none": {
+    "key": 77,
+    "summary": "swapIn"
+  },
+  "mem.swapIn.average": {
+    "key": 78,
+    "summary": "swapIn"
+  },
+  "mem.swapIn.minimum": {
+    "key": 79,
+    "summary": "swapIn"
+  },
+  "mem.swapIn.maximum": {
+    "key": 80,
+    "summary": "swapIn"
+  },
+  "mem.swapOut.none": {
+    "key": 81,
+    "summary": "swapOut"
+  },
+  "mem.swapOut.average": {
+    "key": 82,
+    "summary": "swapOut"
+  },
+  "mem.swapOut.minimum": {
+    "key": 83,
+    "summary": "swapOut"
+  },
+  "mem.swapOut.maximum": {
+    "key": 84,
+    "summary": "swapOut"
+  },
+  "mem.swapinRate.average": {
+    "key": 85,
+    "summary": "Rate at which guest physical memory is swapped in from the swap space"
+  },
+  "mem.swapoutRate.average": {
+    "key": 86,
+    "summary": "Rate at which guest physical memory is swapped out to the swap space"
+  },
+  "managementAgent.swapOut.average": {
+    "key": 87,
+    "summary": "Amount of memory that is swapped out for the Service Console"
+  },
+  "managementAgent.swapIn.average": {
+    "key": 88,
+    "summary": "Amount of memory that is swapped in for the Service Console"
+  },
+  "mem.vmmemctl.none": {
+    "key": 89,
+    "summary": "Amount of guest physical memory reclaimed from the virtual machine by the balloon driver in the guest"
+  },
+  "mem.vmmemctl.average": {
+    "key": 90,
+    "summary": "Amount of guest physical memory reclaimed from the virtual machine by the balloon driver in the guest"
+  },
+  "mem.vmmemctl.minimum": {
+    "key": 91,
+    "summary": "Amount of guest physical memory reclaimed from the virtual machine by the balloon driver in the guest"
+  },
+  "mem.vmmemctl.maximum": {
+    "key": 92,
+    "summary": "Amount of guest physical memory reclaimed from the virtual machine by the balloon driver in the guest"
+  },
+  "mem.vmmemctltarget.none": {
+    "key": 93,
+    "summary": "Desired amount of guest physical memory the balloon driver needs to reclaim, as determined by ESXi"
+  },
+  "mem.vmmemctltarget.average": {
+    "key": 94,
+    "summary": "Desired amount of guest physical memory the balloon driver needs to reclaim, as determined by ESXi"
+  },
+  "mem.vmmemctltarget.minimum": {
+    "key": 95,
+    "summary": "Desired amount of guest physical memory the balloon driver needs to reclaim, as determined by ESXi"
+  },
+  "mem.vmmemctltarget.maximum": {
+    "key": 96,
+    "summary": "Desired amount of guest physical memory the balloon driver needs to reclaim, as determined by ESXi"
+  },
+  "mem.consumed.none": {
+    "key": 97,
+    "summary": "Amount of host physical memory consumed for backing up guest physical memory pages"
+  },
+  "mem.consumed.average": {
+    "key": 98,
+    "summary": "Amount of host physical memory consumed for backing up guest physical memory pages"
+  },
+  "mem.consumed.minimum": {
+    "key": 99,
+    "summary": "Amount of host physical memory consumed for backing up guest physical memory pages"
+  },
+  "mem.consumed.maximum": {
+    "key": 100,
+    "summary": "Amount of host physical memory consumed for backing up guest physical memory pages"
+  },
+  "mem.overhead.none": {
+    "key": 101,
+    "summary": "Host physical memory consumed by ESXi data structures for running the virtual machines"
+  },
+  "mem.overhead.average": {
+    "key": 102,
+    "summary": "Host physical memory consumed by ESXi data structures for running the virtual machines"
+  },
+  "mem.overhead.minimum": {
+    "key": 103,
+    "summary": "Host physical memory consumed by ESXi data structures for running the virtual machines"
+  },
+  "mem.overhead.maximum": {
+    "key": 104,
+    "summary": "Host physical memory consumed by ESXi data structures for running the virtual machines"
+  },
+  "mem.compressed.average": {
+    "key": 105,
+    "summary": "Guest physical memory pages that have undergone memory compression"
+  },
+  "mem.compressionRate.average": {
+    "key": 106,
+    "summary": "Rate of guest physical memory page compression by ESXi"
+  },
+  "mem.decompressionRate.average": {
+    "key": 107,
+    "summary": "Rate of guest physical memory decompression"
+  },
+  "mem.capacity.provisioned.average": {
+    "key": 108,
+    "summary": "Total amount of memory available to the host"
+  },
+  "mem.capacity.entitlement.average": {
+    "key": 109,
+    "summary": "Amount of host physical memory the VM is entitled to, as determined by the ESXi scheduler"
+  },
+  "mem.capacity.usable.average": {
+    "key": 110,
+    "summary": "Amount of physical memory available for use by virtual machines on this host"
+  },
+  "mem.capacity.usage.average": {
+    "key": 111,
+    "summary": "Amount of physical memory actively used"
+  },
+  "mem.capacity.contention.average": {
+    "key": 112,
+    "summary": "Percentage of time VMs are waiting to access swapped, compressed or ballooned memory"
+  },
+  "mem.capacity.usage.vm.average": {
+    "key": 113,
+    "summary": "vm"
+  },
+  "mem.capacity.usage.vmOvrhd.average": {
+    "key": 114,
+    "summary": "vmOvrhd"
+  },
+  "mem.capacity.usage.vmkOvrhd.average": {
+    "key": 115,
+    "summary": "vmkOvrhd"
+  },
+  "mem.capacity.usage.userworld.average": {
+    "key": 116,
+    "summary": "userworld"
+  },
+  "mem.reservedCapacity.vm.average": {
+    "key": 117,
+    "summary": "vm"
+  },
+  "mem.reservedCapacity.vmOvhd.average": {
+    "key": 118,
+    "summary": "vmOvhd"
+  },
+  "mem.reservedCapacity.vmkOvrhd.average": {
+    "key": 119,
+    "summary": "vmkOvrhd"
+  },
+  "mem.reservedCapacity.userworld.average": {
+    "key": 120,
+    "summary": "userworld"
+  },
+  "mem.reservedCapacityPct.average": {
+    "key": 121,
+    "summary": "Percent of memory that has been reserved either through VMkernel use, by userworlds or due to VM memory reservations"
+  },
+  "mem.consumed.vms.average": {
+    "key": 122,
+    "summary": "Amount of physical memory consumed by VMs on this host"
+  },
+  "mem.consumed.userworlds.average": {
+    "key": 123,
+    "summary": "Amount of physical memory consumed by userworlds on this host"
+  },
+  "disk.usage.none": {
+    "key": 124,
+    "summary": "Aggregated disk I/O rate. For hosts, this metric includes the rates for all virtual machines running on the host during the collection interval."
+  },
+  "disk.usage.average": {
+    "key": 125,
+    "summary": "Aggregated disk I/O rate. For hosts, this metric includes the rates for all virtual machines running on the host during the collection interval."
+  },
+  "disk.usage.minimum": {
+    "key": 126,
+    "summary": "Aggregated disk I/O rate. For hosts, this metric includes the rates for all virtual machines running on the host during the collection interval."
+  },
+  "disk.usage.maximum": {
+    "key": 127,
+    "summary": "Aggregated disk I/O rate. For hosts, this metric includes the rates for all virtual machines running on the host during the collection interval."
+  },
+  "disk.numberRead.summation": {
+    "key": 128,
+    "summary": "Number of disk reads during the collection interval"
+  },
+  "disk.numberWrite.summation": {
+    "key": 129,
+    "summary": "Number of disk writes during the collection interval"
+  },
+  "disk.read.average": {
+    "key": 130,
+    "summary": "Average number of kilobytes read from the disk each second during the collection interval"
+  },
+  "disk.write.average": {
+    "key": 131,
+    "summary": "Average number of kilobytes written to disk each second during the collection interval"
+  },
+  "disk.totalLatency.average": {
+    "key": 132,
+    "summary": "Average amount of time taken during the collection interval to process a SCSI command issued by the guest OS to the virtual machine"
+  },
+  "disk.maxTotalLatency.latest": {
+    "key": 133,
+    "summary": "Highest latency value across all disks used by the host"
+  },
+  "disk.commandsAborted.summation": {
+    "key": 134,
+    "summary": "Number of SCSI commands aborted during the collection interval"
+  },
+  "disk.busResets.summation": {
+    "key": 135,
+    "summary": "Number of SCSI-bus reset commands issued during the collection interval"
+  },
+  "disk.numberReadAveraged.average": {
+    "key": 136,
+    "summary": "Average number of disk reads per second during the collection interval"
+  },
+  "disk.numberWriteAveraged.average": {
+    "key": 137,
+    "summary": "Average number of disk writes per second during the collection interval"
+  },
+  "disk.throughput.usage.average": {
+    "key": 138,
+    "summary": "Aggregated disk I/O rate, including the rates for all virtual machines running on the host during the collection interval"
+  },
+  "disk.throughput.contention.average": {
+    "key": 139,
+    "summary": "Average amount of time for an I/O operation to complete successfully"
+  },
+  "disk.scsiReservationConflicts.summation": {
+    "key": 140,
+    "summary": "Number of SCSI reservation conflicts for the LUN during the collection interval"
+  },
+  "disk.scsiReservationCnflctsPct.average": {
+    "key": 141,
+    "summary": "Number of SCSI reservation conflicts for the LUN as a percent of total commands during the collection interval"
+  },
+  "net.usage.none": {
+    "key": 142,
+    "summary": "Network utilization (combined transmit-rates and receive-rates) during the interval"
+  },
+  "net.usage.average": {
+    "key": 143,
+    "summary": "Network utilization (combined transmit-rates and receive-rates) during the interval"
+  },
+  "net.usage.minimum": {
+    "key": 144,
+    "summary": "Network utilization (combined transmit-rates and receive-rates) during the interval"
+  },
+  "net.usage.maximum": {
+    "key": 145,
+    "summary": "Network utilization (combined transmit-rates and receive-rates) during the interval"
+  },
+  "net.packetsRx.summation": {
+    "key": 146,
+    "summary": "Number of packets received during the interval"
+  },
+  "net.packetsTx.summation": {
+    "key": 147,
+    "summary": "Number of packets transmitted during the interval"
+  },
+  "net.received.average": {
+    "key": 148,
+    "summary": "Average rate at which data was received during the interval"
+  },
+  "net.transmitted.average": {
+    "key": 149,
+    "summary": "Average rate at which data was transmitted during the interval"
+  },
+  "net.throughput.provisioned.average": {
+    "key": 150,
+    "summary": "The maximum network bandwidth for the host"
+  },
+  "net.throughput.usable.average": {
+    "key": 151,
+    "summary": "The current available network bandwidth for the host"
+  },
+  "net.throughput.usage.average": {
+    "key": 152,
+    "summary": "The current network bandwidth usage for the host"
+  },
+  "net.throughput.contention.summation": {
+    "key": 153,
+    "summary": "The aggregate network droppped packets for the host"
+  },
+  "net.throughput.packetsPerSec.average": {
+    "key": 154,
+    "summary": "Average rate of packets received and transmitted per second"
+  },
+  "sys.uptime.latest": {
+    "key": 155,
+    "summary": "Total time elapsed, in seconds, since last system startup"
+  },
+  "sys.heartbeat.summation": {
+    "key": 156,
+    "summary": "Number of heartbeats issued per virtual machine during the interval"
+  },
+  "power.power.average": {
+    "key": 157,
+    "summary": "Current power usage"
+  },
+  "power.powerCap.average": {
+    "key": 158,
+    "summary": "Maximum allowed power usage"
+  },
+  "power.energy.summation": {
+    "key": 159,
+    "summary": "Total energy used since last stats reset"
+  },
+  "power.capacity.usagePct.average": {
+    "key": 160,
+    "summary": "Current power usage as a percentage of maximum allowed power."
+  },
+  "storageAdapter.commandsAveraged.average": {
+    "key": 161,
+    "summary": "Average number of commands issued per second by the storage adapter during the collection interval"
+  },
+  "storageAdapter.numberReadAveraged.average": {
+    "key": 162,
+    "summary": "Average number of read commands issued per second by the storage adapter during the collection interval"
+  },
+  "storageAdapter.numberWriteAveraged.average": {
+    "key": 163,
+    "summary": "Average number of write commands issued per second by the storage adapter during the collection interval"
+  },
+  "storageAdapter.read.average": {
+    "key": 164,
+    "summary": "Rate of reading data by the storage adapter"
+  },
+  "storageAdapter.write.average": {
+    "key": 165,
+    "summary": "Rate of writing data by the storage adapter"
+  },
+  "storageAdapter.totalReadLatency.average": {
+    "key": 166,
+    "summary": "The average time a read by the storage adapter takes"
+  },
+  "storageAdapter.totalWriteLatency.average": {
+    "key": 167,
+    "summary": "The average time a write by the storage adapter takes"
+  },
+  "storageAdapter.maxTotalLatency.latest": {
+    "key": 168,
+    "summary": "Highest latency value across all storage adapters used by the host"
+  },
+  "storageAdapter.throughput.cont.average": {
+    "key": 169,
+    "summary": "Average amount of time for an I/O operation to complete successfully"
+  },
+  "storageAdapter.OIOsPct.average": {
+    "key": 170,
+    "summary": "The percent of I/Os that have been issued but have not yet completed"
+  },
+  "virtualDisk.numberReadAveraged.average": {
+    "key": 171,
+    "summary": "Average number of read commands issued per second to the virtual disk during the collection interval"
+  },
+  "virtualDisk.numberWriteAveraged.average": {
+    "key": 172,
+    "summary": "Average number of write commands issued per second to the virtual disk during the collection interval"
+  },
+  "virtualDisk.read.average": {
+    "key": 173,
+    "summary": "Rate of reading data from the virtual disk"
+  },
+  "virtualDisk.write.average": {
+    "key": 174,
+    "summary": "Rate of writing data to the virtual disk"
+  },
+  "virtualDisk.totalReadLatency.average": {
+    "key": 175,
+    "summary": "The average time a read from the virtual disk takes"
+  },
+  "virtualDisk.totalWriteLatency.average": {
+    "key": 176,
+    "summary": "The average time a write to the virtual disk takes"
+  },
+  "virtualDisk.throughput.cont.average": {
+    "key": 177,
+    "summary": "Average amount of time for an I/O operation to complete successfully"
+  },
+  "datastore.numberReadAveraged.average": {
+    "key": 178,
+    "summary": "Average number of read commands issued per second to the datastore during the collection interval"
+  },
+  "datastore.numberWriteAveraged.average": {
+    "key": 179,
+    "summary": "Average number of write commands issued per second to the datastore during the collection interval"
+  },
+  "datastore.read.average": {
+    "key": 180,
+    "summary": "Rate of reading data from the datastore"
+  },
+  "datastore.write.average": {
+    "key": 181,
+    "summary": "Rate of writing data to the datastore"
+  },
+  "datastore.totalReadLatency.average": {
+    "key": 182,
+    "summary": "The average time a read from the datastore takes"
+  },
+  "datastore.totalWriteLatency.average": {
+    "key": 183,
+    "summary": "The average time a write to the datastore takes"
+  },
+  "datastore.maxTotalLatency.latest": {
+    "key": 184,
+    "summary": "Highest latency value across all datastores used by the host"
+  },
+  "datastore.datastoreIops.average": {
+    "key": 185,
+    "summary": "Storage I/O Control aggregated IOPS"
+  },
+  "datastore.sizeNormalizedDatastoreLatency.average": {
+    "key": 186,
+    "summary": "Storage I/O Control size-normalized I/O latency"
+  },
+  "datastore.throughput.usage.average": {
+    "key": 187,
+    "summary": "usage"
+  },
+  "datastore.throughput.contention.average": {
+    "key": 188,
+    "summary": "contention"
+  },
+  "datastore.busResets.summation": {
+    "key": 189,
+    "summary": "busResets"
+  },
+  "datastore.commandsAborted.summation": {
+    "key": 190,
+    "summary": "commandsAborted"
+  },
+  "datastore.siocActiveTimePercentage.average": {
+    "key": 191,
+    "summary": "Percentage of time Storage I/O Control actively controlled datastore latency"
+  },
+  "storagePath.throughput.cont.average": {
+    "key": 192,
+    "summary": "Average amount of time for an I/O operation to complete successfully"
+  },
+  "storagePath.maxTotalLatency.latest": {
+    "key": 193,
+    "summary": "Highest latency value across all storage paths used by the host"
+  },
+  "virtualDisk.throughput.usage.average": {
+    "key": 194,
+    "summary": "Virtual disk I/O rate"
+  },
+  "virtualDisk.commandsAborted.summation": {
+    "key": 195,
+    "summary": "Number of terminations to a virtual disk"
+  },
+  "virtualDisk.busResets.summation": {
+    "key": 196,
+    "summary": "Number of resets to a virtual disk"
+  },
+  "storageAdapter.outstandingIOs.average": {
+    "key": 197,
+    "summary": "The number of I/Os that have been issued but have not yet completed"
+  },
+  "storageAdapter.queued.average": {
+    "key": 198,
+    "summary": "The current number of I/Os that are waiting to be issued"
+  },
+  "storageAdapter.queueDepth.average": {
+    "key": 199,
+    "summary": "The maximum number of I/Os that can be outstanding at a given time"
+  },
+  "storageAdapter.queueLatency.average": {
+    "key": 200,
+    "summary": "Average amount of time spent in the VMkernel queue, per SCSI command, during the collection interval"
+  },
+  "storageAdapter.throughput.usag.average": {
+    "key": 201,
+    "summary": "The storage adapter's I/O rate"
+  },
+  "storagePath.busResets.summation": {
+    "key": 202,
+    "summary": "Number of SCSI-bus reset commands issued during the collection interval"
+  },
+  "storagePath.commandsAborted.summation": {
+    "key": 203,
+    "summary": "Number of SCSI commands terminated during the collection interval"
+  },
+  "storagePath.throughput.usage.average": {
+    "key": 204,
+    "summary": "Storage path I/O rate"
+  },
+  "net.throughput.usage.vm.average": {
+    "key": 205,
+    "summary": "Average pNic I/O rate for VMs"
+  },
+  "net.throughput.usage.nfs.average": {
+    "key": 206,
+    "summary": "Average pNic I/O rate for NFS"
+  },
+  "net.throughput.usage.vmotion.average": {
+    "key": 207,
+    "summary": "Average pNic I/O rate for vMotion"
+  },
+  "net.throughput.usage.ft.average": {
+    "key": 208,
+    "summary": "Average pNic I/O rate for FT"
+  },
+  "net.throughput.usage.iscsi.average": {
+    "key": 209,
+    "summary": "Average pNic I/O rate for iSCSI"
+  },
+  "net.throughput.usage.hbr.average": {
+    "key": 210,
+    "summary": "Average pNic I/O rate for HBR"
+  },
+  "power.capacity.usable.average": {
+    "key": 211,
+    "summary": "Current maximum allowed power usage."
+  },
+  "power.capacity.usage.average": {
+    "key": 212,
+    "summary": "Current power usage"
+  },
+  "cpu.cpuentitlement.latest": {
+    "key": 213,
+    "summary": "Amount of CPU resources allocated to the virtual machine or resource pool, based on the total cluster capacity and the resource configuration of the resource hierarchy"
+  },
+  "mem.mementitlement.latest": {
+    "key": 214,
+    "summary": "Memory allocation as calculated by the VMkernel scheduler based on current estimated demand and reservation, limit, and shares policies set for all virtual machines and resource pools in the host or cluster"
+  },
+  "clusterServices.cpufairness.latest": {
+    "key": 215,
+    "summary": "Fairness of distributed CPU resource allocation"
+  },
+  "clusterServices.memfairness.latest": {
+    "key": 216,
+    "summary": "Aggregate available memory resources of all the hosts within a cluster"
+  },
+  "net.throughput.pktsTx.average": {
+    "key": 217,
+    "summary": "The rate of transmitted packets for this VDS"
+  },
+  "net.throughput.pktsTxMulticast.average": {
+    "key": 218,
+    "summary": "The rate of transmitted Multicast packets for this VDS"
+  },
+  "net.throughput.pktsTxBroadcast.average": {
+    "key": 219,
+    "summary": "The rate of transmitted Broadcast packets for this VDS"
+  },
+  "net.throughput.pktsRx.average": {
+    "key": 220,
+    "summary": "The rate of received packets for this vDS"
+  },
+  "net.throughput.pktsRxMulticast.average": {
+    "key": 221,
+    "summary": "The rate of received Multicast packets for this VDS"
+  },
+  "net.throughput.pktsRxBroadcast.average": {
+    "key": 222,
+    "summary": "The rate of received Broadcast packets for this VDS"
+  },
+  "net.throughput.droppedTx.average": {
+    "key": 223,
+    "summary": "Count of dropped transmitted packets for this VDS"
+  },
+  "net.throughput.droppedRx.average": {
+    "key": 224,
+    "summary": "Count of dropped received packets for this VDS"
+  },
+  "net.throughput.vds.pktsTx.average": {
+    "key": 225,
+    "summary": "The rate of transmitted packets for this DVPort"
+  },
+  "net.throughput.vds.pktsTxMcast.average": {
+    "key": 226,
+    "summary": "The rate of transmitted multicast packets for this DVPort"
+  },
+  "net.throughput.vds.pktsTxBcast.average": {
+    "key": 227,
+    "summary": "The rate of transmitted broadcast packets for this DVPort"
+  },
+  "net.throughput.vds.pktsRx.average": {
+    "key": 228,
+    "summary": "The rate of received packets for this DVPort"
+  },
+  "net.throughput.vds.pktsRxMcast.average": {
+    "key": 229,
+    "summary": "The rate of received multicast packets for this DVPort"
+  },
+  "net.throughput.vds.pktsRxBcast.average": {
+    "key": 230,
+    "summary": "The rate of received broadcast packets for this DVPort"
+  },
+  "net.throughput.vds.droppedTx.average": {
+    "key": 231,
+    "summary": "Count of dropped transmitted packets for this DVPort"
+  },
+  "net.throughput.vds.droppedRx.average": {
+    "key": 232,
+    "summary": "Count of dropped received packets for this DVPort"
+  },
+  "net.throughput.vds.lagTx.average": {
+    "key": 233,
+    "summary": "The rate of transmitted packets for this LAG"
+  },
+  "net.throughput.vds.lagTxMcast.average": {
+    "key": 234,
+    "summary": "The rate of transmitted Multicast packets for this LAG"
+  },
+  "net.throughput.vds.lagTxBcast.average": {
+    "key": 235,
+    "summary": "The rate of transmitted Broadcast packets for this LAG"
+  },
+  "net.throughput.vds.lagRx.average": {
+    "key": 236,
+    "summary": "The rate of received packets for this LAG"
+  },
+  "net.throughput.vds.lagRxMcast.average": {
+    "key": 237,
+    "summary": "The rate of received multicast packets for this LAG"
+  },
+  "net.throughput.vds.lagRxBcast.average": {
+    "key": 238,
+    "summary": "The rate of received Broadcast packets for this LAG"
+  },
+  "net.throughput.vds.lagDropTx.average": {
+    "key": 239,
+    "summary": "Count of dropped transmitted packets for this LAG"
+  },
+  "net.throughput.vds.lagDropRx.average": {
+    "key": 240,
+    "summary": "Count of dropped received packets for this LAG"
+  },
+  "net.throughput.vds.txTotal.average": {
+    "key": 241,
+    "summary": "The rate of transmitted packets for this network"
+  },
+  "net.throughput.vds.txNoUnicast.average": {
+    "key": 242,
+    "summary": "The rate of transmitted non-unicast packets for this network"
+  },
+  "net.throughput.vds.txCrsRouter.average": {
+    "key": 243,
+    "summary": "The rate of transmitted cross-router packets for this network"
+  },
+  "net.throughput.vds.txDrop.average": {
+    "key": 244,
+    "summary": "Count of dropped transmitted packets for this network"
+  },
+  "net.throughput.vds.rxTotal.average": {
+    "key": 245,
+    "summary": "The rate of received packets for this network"
+  },
+  "net.throughput.vds.rxDestErr.average": {
+    "key": 246,
+    "summary": "Count of dropped received packets with destination IP error for this network"
+  },
+  "net.throughput.vds.rxDrop.average": {
+    "key": 247,
+    "summary": "Count of dropped received packets for this network"
+  },
+  "net.throughput.vds.macFlood.average": {
+    "key": 248,
+    "summary": "Count of transmitted packets that cannot find matched mapping entry for this network"
+  },
+  "net.throughput.vds.macLKUPFull.average": {
+    "key": 249,
+    "summary": "Count of transmitted packets that failed to acquire new mapping entry during translation phase for this network"
+  },
+  "net.throughput.vds.macUPDTFull.average": {
+    "key": 250,
+    "summary": "Count of transmitted packets that failed to acquire new mapping entry during learning phase for this network"
+  },
+  "net.throughput.vds.arpFound.average": {
+    "key": 251,
+    "summary": "Count of transmitted packets that found matched ARP entry for this network"
+  },
+  "net.throughput.vds.arpUnknown.average": {
+    "key": 252,
+    "summary": "Count of transmitted packets whose matched arp entry is marked as unknown for this network"
+  },
+  "net.throughput.vds.arpLKUPFull.average": {
+    "key": 253,
+    "summary": "Count of transmitted packets that failed to acquire new ARP entry during translation phase for this network"
+  },
+  "net.throughput.vds.arpWait.average": {
+    "key": 254,
+    "summary": "Count of transmitted packets whose ARP requests have already been sent into queue for this network"
+  },
+  "net.throughput.vds.arpTimeout.average": {
+    "key": 255,
+    "summary": "Count of arp queries that have been expired for this network"
+  },
+  "vmop.numPoweron.latest": {
+    "key": 256,
+    "summary": "Number of virtual machine power on operations"
+  },
+  "vmop.numPoweroff.latest": {
+    "key": 257,
+    "summary": "Number of virtual machine power off operations"
+  },
+  "vmop.numSuspend.latest": {
+    "key": 258,
+    "summary": "Number of virtual machine suspend operations"
+  },
+  "vmop.numReset.latest": {
+    "key": 259,
+    "summary": "Number of virtual machine reset operations"
+  },
+  "vmop.numRebootGuest.latest": {
+    "key": 260,
+    "summary": "Number of virtual machine guest reboot operations"
+  },
+  "vmop.numStandbyGuest.latest": {
+    "key": 261,
+    "summary": "Number of virtual machine standby guest operations"
+  },
+  "vmop.numShutdownGuest.latest": {
+    "key": 262,
+    "summary": "Number of virtual machine guest shutdown operations"
+  },
+  "vmop.numCreate.latest": {
+    "key": 263,
+    "summary": "Number of virtual machine create operations"
+  },
+  "vmop.numDestroy.latest": {
+    "key": 264,
+    "summary": "Number of virtual machine delete operations"
+  },
+  "vmop.numRegister.latest": {
+    "key": 265,
+    "summary": "Number of virtual machine register operations"
+  },
+  "vmop.numUnregister.latest": {
+    "key": 266,
+    "summary": "Number of virtual machine unregister operations"
+  },
+  "vmop.numReconfigure.latest": {
+    "key": 267,
+    "summary": "Number of virtual machine reconfigure operations"
+  },
+  "vmop.numClone.latest": {
+    "key": 268,
+    "summary": "Number of virtual machine clone operations"
+  },
+  "vmop.numDeploy.latest": {
+    "key": 269,
+    "summary": "Number of virtual machine template deploy operations"
+  },
+  "vmop.numChangeHost.latest": {
+    "key": 270,
+    "summary": "Number of host change operations for powered-off and suspended VMs"
+  },
+  "vmop.numChangeDS.latest": {
+    "key": 271,
+    "summary": "Number of datastore change operations for powered-off and suspended virtual machines"
+  },
+  "vmop.numChangeHostDS.latest": {
+    "key": 272,
+    "summary": "Number of host and datastore change operations for powered-off and suspended virtual machines"
+  },
+  "vmop.numVMotion.latest": {
+    "key": 273,
+    "summary": "Number of migrations with vMotion (host change operations for powered-on VMs)"
+  },
+  "vmop.numSVMotion.latest": {
+    "key": 274,
+    "summary": "Number of migrations with Storage vMotion (datastore change operations for powered-on VMs)"
+  },
+  "vmop.numXVMotion.latest": {
+    "key": 275,
+    "summary": "Number of host and datastore change operations for powered-on and suspended virtual machines"
+  },
+  "clusterServices.effectivecpu.average": {
+    "key": 276,
+    "summary": "Total available CPU resources of all hosts within a cluster"
+  },
+  "clusterServices.effectivemem.average": {
+    "key": 277,
+    "summary": "Total amount of machine memory of all hosts in the cluster that is available for use for virtual machine memory and overhead memory"
+  },
+  "cpu.totalmhz.average": {
+    "key": 278,
+    "summary": "Total amount of CPU resources of all hosts in the cluster"
+  },
+  "mem.totalmb.average": {
+    "key": 279,
+    "summary": "Total amount of host physical memory of all hosts in the cluster that is available for virtual machine memory (physical memory for use by the guest OS) and virtual machine overhead memory"
+  },
+  "clusterServices.failover.latest": {
+    "key": 280,
+    "summary": "vSphere HA number of failures that can be tolerated"
+  },
+  "disk.used.latest": {
+    "key": 281,
+    "summary": "Amount of space actually used by the virtual machine or the datastore"
+  },
+  "disk.provisioned.latest": {
+    "key": 282,
+    "summary": "Amount of storage set aside for use by a datastore or a virtual machine"
+  },
+  "disk.capacity.latest": {
+    "key": 283,
+    "summary": "Configured size of the datastore"
+  },
+  "disk.unshared.latest": {
+    "key": 284,
+    "summary": "Amount of space associated exclusively with a virtual machine"
+  },
+  "disk.deltaused.latest": {
+    "key": 285,
+    "summary": "Storage overhead of a virtual machine or a datastore due to delta disk backings"
+  },
+  "disk.capacity.provisioned.average": {
+    "key": 286,
+    "summary": "provisioned"
+  },
+  "disk.capacity.usage.average": {
+    "key": 287,
+    "summary": "usage"
+  },
+  "disk.capacity.contention.average": {
+    "key": 288,
+    "summary": "contention"
+  },
+  "vcDebugInfo.activationlatencystats.maximum": {
+    "key": 289,
+    "summary": "The latency of an activation operation in vCenter Server"
+  },
+  "vcDebugInfo.activationlatencystats.minimum": {
+    "key": 290,
+    "summary": "The latency of an activation operation in vCenter Server"
+  },
+  "vcDebugInfo.activationlatencystats.summation": {
+    "key": 291,
+    "summary": "The latency of an activation operation in vCenter Server"
+  },
+  "vcDebugInfo.activationstats.maximum": {
+    "key": 292,
+    "summary": "Activation operations in vCenter Server"
+  },
+  "vcDebugInfo.activationstats.minimum": {
+    "key": 293,
+    "summary": "Activation operations in vCenter Server"
+  },
+  "vcDebugInfo.activationstats.summation": {
+    "key": 294,
+    "summary": "Activation operations in vCenter Server"
+  },
+  "vcResources.buffersz.average": {
+    "key": 295,
+    "summary": "buffersz"
+  },
+  "vcResources.cachesz.average": {
+    "key": 296,
+    "summary": "cachesz"
+  },
+  "vcResources.ctxswitchesrate.average": {
+    "key": 297,
+    "summary": "Number of context switches per second on the system where vCenter Server is running"
+  },
+  "vcResources.diskreadsectorrate.average": {
+    "key": 298,
+    "summary": "diskreadsectorrate"
+  },
+  "vcResources.diskreadsrate.average": {
+    "key": 299,
+    "summary": "Number of disk reads per second on the system where vCenter Server is running"
+  },
+  "vcResources.diskwritesectorrate.average": {
+    "key": 300,
+    "summary": "diskwritesectorrate"
+  },
+  "vcResources.diskwritesrate.average": {
+    "key": 301,
+    "summary": "Number of disk writes per second on the system where vCenter Server is running"
+  },
+  "vcDebugInfo.hostsynclatencystats.maximum": {
+    "key": 302,
+    "summary": "The latency of a host sync operation in vCenter Server"
+  },
+  "vcDebugInfo.hostsynclatencystats.minimum": {
+    "key": 303,
+    "summary": "The latency of a host sync operation in vCenter Server"
+  },
+  "vcDebugInfo.hostsynclatencystats.summation": {
+    "key": 304,
+    "summary": "The latency of a host sync operation in vCenter Server"
+  },
+  "vcDebugInfo.hostsyncstats.maximum": {
+    "key": 305,
+    "summary": "The number of host sync operations in vCenter Server"
+  },
+  "vcDebugInfo.hostsyncstats.minimum": {
+    "key": 306,
+    "summary": "The number of host sync operations in vCenter Server"
+  },
+  "vcDebugInfo.hostsyncstats.summation": {
+    "key": 307,
+    "summary": "The number of host sync operations in vCenter Server"
+  },
+  "vcDebugInfo.inventorystats.maximum": {
+    "key": 308,
+    "summary": "vCenter Server inventory statistics"
+  },
+  "vcDebugInfo.inventorystats.minimum": {
+    "key": 309,
+    "summary": "vCenter Server inventory statistics"
+  },
+  "vcDebugInfo.inventorystats.summation": {
+    "key": 310,
+    "summary": "vCenter Server inventory statistics"
+  },
+  "vcDebugInfo.lockstats.maximum": {
+    "key": 311,
+    "summary": "vCenter Server locking statistics"
+  },
+  "vcDebugInfo.lockstats.minimum": {
+    "key": 312,
+    "summary": "vCenter Server locking statistics"
+  },
+  "vcDebugInfo.lockstats.summation": {
+    "key": 313,
+    "summary": "vCenter Server locking statistics"
+  },
+  "vcDebugInfo.lrostats.maximum": {
+    "key": 314,
+    "summary": "vCenter Server LRO statistics"
+  },
+  "vcDebugInfo.lrostats.minimum": {
+    "key": 315,
+    "summary": "vCenter Server LRO statistics"
+  },
+  "vcDebugInfo.lrostats.summation": {
+    "key": 316,
+    "summary": "vCenter Server LRO statistics"
+  },
+  "vcDebugInfo.miscstats.maximum": {
+    "key": 317,
+    "summary": "Miscellaneous statistics"
+  },
+  "vcDebugInfo.miscstats.minimum": {
+    "key": 318,
+    "summary": "Miscellaneous statistics"
+  },
+  "vcDebugInfo.miscstats.summation": {
+    "key": 319,
+    "summary": "Miscellaneous statistics"
+  },
+  "vcDebugInfo.morefregstats.maximum": {
+    "key": 320,
+    "summary": "Managed object reference counts in vCenter Server"
+  },
+  "vcDebugInfo.morefregstats.minimum": {
+    "key": 321,
+    "summary": "Managed object reference counts in vCenter Server"
+  },
+  "vcDebugInfo.morefregstats.summation": {
+    "key": 322,
+    "summary": "Managed object reference counts in vCenter Server"
+  },
+  "vcResources.packetrecvrate.average": {
+    "key": 323,
+    "summary": "Rate of the number of total packets received per second on the system where vCenter Server is running"
+  },
+  "vcResources.packetsentrate.average": {
+    "key": 324,
+    "summary": "Number of total packets sent per second on the system where vCenter Server is running"
+  },
+  "vcResources.systemcpuusage.average": {
+    "key": 325,
+    "summary": "Total system CPU used on the system where vCenter Server in running"
+  },
+  "vcResources.pagefaultrate.average": {
+    "key": 326,
+    "summary": "Number of page faults per second on the system where vCenter Server is running"
+  },
+  "vcResources.physicalmemusage.average": {
+    "key": 327,
+    "summary": "Physical memory used by vCenter"
+  },
+  "vcResources.priviledgedcpuusage.average": {
+    "key": 328,
+    "summary": "CPU used by vCenter Server in privileged mode"
+  },
+  "vcDebugInfo.scoreboard.maximum": {
+    "key": 329,
+    "summary": "Object counts in vCenter Server"
+  },
+  "vcDebugInfo.scoreboard.minimum": {
+    "key": 330,
+    "summary": "Object counts in vCenter Server"
+  },
+  "vcDebugInfo.scoreboard.summation": {
+    "key": 331,
+    "summary": "Object counts in vCenter Server"
+  },
+  "vcDebugInfo.sessionstats.maximum": {
+    "key": 332,
+    "summary": "The statistics of client sessions connected to vCenter Server"
+  },
+  "vcDebugInfo.sessionstats.minimum": {
+    "key": 333,
+    "summary": "The statistics of client sessions connected to vCenter Server"
+  },
+  "vcDebugInfo.sessionstats.summation": {
+    "key": 334,
+    "summary": "The statistics of client sessions connected to vCenter Server"
+  },
+  "vcResources.syscallsrate.average": {
+    "key": 335,
+    "summary": "Number of systems calls made per second on the system where vCenter Server is running"
+  },
+  "vcDebugInfo.systemstats.maximum": {
+    "key": 336,
+    "summary": "The statistics of vCenter Server as a running system such as thread statistics and heap statistics"
+  },
+  "vcDebugInfo.systemstats.minimum": {
+    "key": 337,
+    "summary": "The statistics of vCenter Server as a running system such as thread statistics and heap statistics"
+  },
+  "vcDebugInfo.systemstats.summation": {
+    "key": 338,
+    "summary": "The statistics of vCenter Server as a running system such as thread statistics and heap statistics"
+  },
+  "vcResources.usercpuusage.average": {
+    "key": 339,
+    "summary": "CPU used by vCenter Server in user mode"
+  },
+  "vcDebugInfo.vcservicestats.maximum": {
+    "key": 340,
+    "summary": "vCenter service statistics such as events, alarms, and tasks"
+  },
+  "vcDebugInfo.vcservicestats.minimum": {
+    "key": 341,
+    "summary": "vCenter service statistics such as events, alarms, and tasks"
+  },
+  "vcDebugInfo.vcservicestats.summation": {
+    "key": 342,
+    "summary": "vCenter service statistics such as events, alarms, and tasks"
+  },
+  "vcResources.virtualmemusage.average": {
+    "key": 343,
+    "summary": "Virtual memory used by vCenter Server"
+  },
+  "virtualDisk.readOIO.latest": {
+    "key": 344,
+    "summary": "Average number of outstanding read requests to the virtual disk during the collection interval"
+  },
+  "virtualDisk.writeOIO.latest": {
+    "key": 345,
+    "summary": "Average number of outstanding write requests to the virtual disk during the collection interval"
+  },
+  "virtualDisk.readLoadMetric.latest": {
+    "key": 346,
+    "summary": "Storage DRS virtual disk metric for the read workload model"
+  },
+  "virtualDisk.writeLoadMetric.latest": {
+    "key": 347,
+    "summary": "Storage DRS virtual disk metric for the write workload model"
+  },
+  "rescpu.actav1.latest": {
+    "key": 348,
+    "summary": "CPU active average over 1 minute"
+  },
+  "datastore.datastoreReadBytes.latest": {
+    "key": 349,
+    "summary": "Storage DRS datastore bytes read"
+  },
+  "datastore.datastoreWriteBytes.latest": {
+    "key": 350,
+    "summary": "Storage DRS datastore bytes written"
+  },
+  "datastore.datastoreReadIops.latest": {
+    "key": 351,
+    "summary": "Storage DRS datastore read I/O rate"
+  },
+  "datastore.datastoreWriteIops.latest": {
+    "key": 352,
+    "summary": "Storage DRS datastore write I/O rate"
+  },
+  "datastore.datastoreReadOIO.latest": {
+    "key": 353,
+    "summary": "Storage DRS datastore outstanding read requests"
+  },
+  "datastore.datastoreWriteOIO.latest": {
+    "key": 354,
+    "summary": "Storage DRS datastore outstanding write requests"
+  },
+  "datastore.datastoreNormalReadLatency.latest": {
+    "key": 355,
+    "summary": "Storage DRS datastore normalized read latency"
+  },
+  "datastore.datastoreNormalWriteLatency.latest": {
+    "key": 356,
+    "summary": "Storage DRS datastore normalized write latency"
+  },
+  "datastore.datastoreReadLoadMetric.latest": {
+    "key": 357,
+    "summary": "Storage DRS datastore metric for read workload model"
+  },
+  "datastore.datastoreWriteLoadMetric.latest": {
+    "key": 358,
+    "summary": "Storage DRS datastore metric for write workload model"
+  },
+  "datastore.datastoreVMObservedLatency.latest": {
+    "key": 359,
+    "summary": "The average datastore latency as seen by virtual machines"
+  },
+  "net.throughput.vds.txTotal.summation": {
+    "key": 360,
+    "summary": "The rate of transmitted packets for this network"
+  },
+  "net.throughput.vds.txNoUnicast.summation": {
+    "key": 361,
+    "summary": "The rate of transmitted non-unicast packets for this network"
+  },
+  "net.throughput.vds.txCrsRouter.summation": {
+    "key": 362,
+    "summary": "The rate of transmitted cross-router packets for this network"
+  },
+  "net.throughput.vds.txDrop.summation": {
+    "key": 363,
+    "summary": "Count of dropped transmitted packets for this network"
+  },
+  "net.throughput.vds.rxTotal.summation": {
+    "key": 364,
+    "summary": "The rate of received packets for this network"
+  },
+  "net.throughput.vds.rxDestErr.summation": {
+    "key": 365,
+    "summary": "Count of dropped received packets with destination IP error for this network"
+  },
+  "net.throughput.vds.rxDrop.summation": {
+    "key": 366,
+    "summary": "Count of dropped received packets for this network"
+  },
+  "net.throughput.vds.macFlood.summation": {
+    "key": 367,
+    "summary": "Count of transmitted packets that cannot find matched mapping entry for this network"
+  },
+  "net.throughput.vds.macLKUPFull.summation": {
+    "key": 368,
+    "summary": "Count of transmitted packets that failed to acquire new mapping entry during translation phase for this network"
+  },
+  "net.throughput.vds.macUPDTFull.summation": {
+    "key": 369,
+    "summary": "Count of transmitted packets that failed to acquire new mapping entry during learning phase for this network"
+  },
+  "net.throughput.vds.arpFound.summation": {
+    "key": 370,
+    "summary": "Count of transmitted packets that found matched ARP entry for this network"
+  },
+  "net.throughput.vds.arpUnknown.summation": {
+    "key": 371,
+    "summary": "Count of transmitted packets whose matched arp entry is marked as unknown for this network"
+  },
+  "net.throughput.vds.arpLKUPFull.summation": {
+    "key": 372,
+    "summary": "Count of transmitted packets that failed to acquire new ARP entry during translation phase for this network"
+  },
+  "net.throughput.vds.arpWait.summation": {
+    "key": 373,
+    "summary": "Count of transmitted packets whose ARP requests have already been sent into queue for this network"
+  },
+  "net.throughput.vds.arpTimeout.summation": {
+    "key": 374,
+    "summary": "Count of arp queries that have been expired for this network"
+  },
+  "cpu.swapwait.summation": {
+    "key": 375,
+    "summary": "CPU time spent waiting for swap-in"
+  },
+  "cpu.utilization.none": {
+    "key": 376,
+    "summary": "CPU utilization as a percentage during the interval (CPU usage and CPU utilization might be different due to power management technologies or hyper-threading)"
+  },
+  "cpu.utilization.average": {
+    "key": 377,
+    "summary": "CPU utilization as a percentage during the interval (CPU usage and CPU utilization might be different due to power management technologies or hyper-threading)"
+  },
+  "cpu.utilization.maximum": {
+    "key": 378,
+    "summary": "CPU utilization as a percentage during the interval (CPU usage and CPU utilization might be different due to power management technologies or hyper-threading)"
+  },
+  "cpu.utilization.minimum": {
+    "key": 379,
+    "summary": "CPU utilization as a percentage during the interval (CPU usage and CPU utilization might be different due to power management technologies or hyper-threading)"
+  },
+  "cpu.coreUtilization.none": {
+    "key": 380,
+    "summary": "CPU utilization of the corresponding core (if hyper-threading is enabled) as a percentage during the interval (A core is utilized if either or both of its logical CPUs are utilized)"
+  },
+  "cpu.coreUtilization.average": {
+    "key": 381,
+    "summary": "CPU utilization of the corresponding core (if hyper-threading is enabled) as a percentage during the interval (A core is utilized if either or both of its logical CPUs are utilized)"
+  },
+  "cpu.coreUtilization.maximum": {
+    "key": 382,
+    "summary": "CPU utilization of the corresponding core (if hyper-threading is enabled) as a percentage during the interval (A core is utilized if either or both of its logical CPUs are utilized)"
+  },
+  "cpu.coreUtilization.minimum": {
+    "key": 383,
+    "summary": "CPU utilization of the corresponding core (if hyper-threading is enabled) as a percentage during the interval (A core is utilized if either or both of its logical CPUs are utilized)"
+  },
+  "cpu.totalCapacity.average": {
+    "key": 384,
+    "summary": "Total CPU capacity reserved by and available for virtual machines"
+  },
+  "cpu.latency.average": {
+    "key": 385,
+    "summary": "Percent of time the virtual machine is unable to run because it is contending for access to the physical CPU(s)"
+  },
+  "cpu.entitlement.latest": {
+    "key": 386,
+    "summary": "CPU resources devoted by the ESX scheduler"
+  },
+  "cpu.demand.average": {
+    "key": 387,
+    "summary": "The amount of CPU resources a virtual machine would use if there were no CPU contention or CPU limit"
+  },
+  "cpu.costop.summation": {
+    "key": 388,
+    "summary": "Time the virtual machine is ready to run, but is unable to run due to co-scheduling constraints"
+  },
+  "cpu.maxlimited.summation": {
+    "key": 389,
+    "summary": "Time the virtual machine is ready to run, but is not run due to maxing out its CPU limit setting"
+  },
+  "cpu.overlap.summation": {
+    "key": 390,
+    "summary": "Time the virtual machine was interrupted to perform system services on behalf of itself or other virtual machines"
+  },
+  "cpu.run.summation": {
+    "key": 391,
+    "summary": "Time the virtual machine is scheduled to run"
+  },
+  "cpu.demandEntitlementRatio.latest": {
+    "key": 392,
+    "summary": "CPU resource entitlement to CPU demand ratio (in percents)"
+  },
+  "cpu.readiness.average": {
+    "key": 393,
+    "summary": "Percentage of time that the virtual machine was ready, but could not get scheduled to run on the physical CPU"
+  },
+  "mem.swapin.none": {
+    "key": 394,
+    "summary": "Amount of guest physical memory that is swapped in from the swap space since the virtual machine has been powered on. This value is less than or equal to the 'Swap out' counter"
+  },
+  "mem.swapin.average": {
+    "key": 395,
+    "summary": "Amount of guest physical memory that is swapped in from the swap space since the virtual machine has been powered on. This value is less than or equal to the 'Swap out' counter"
+  },
+  "mem.swapin.maximum": {
+    "key": 396,
+    "summary": "Amount of guest physical memory that is swapped in from the swap space since the virtual machine has been powered on. This value is less than or equal to the 'Swap out' counter"
+  },
+  "mem.swapin.minimum": {
+    "key": 397,
+    "summary": "Amount of guest physical memory that is swapped in from the swap space since the virtual machine has been powered on. This value is less than or equal to the 'Swap out' counter"
+  },
+  "mem.swapout.none": {
+    "key": 398,
+    "summary": "Amount of guest physical memory that is swapped out from the virtual machine to its swap space since it has been powered on."
+  },
+  "mem.swapout.average": {
+    "key": 399,
+    "summary": "Amount of guest physical memory that is swapped out from the virtual machine to its swap space since it has been powered on."
+  },
+  "mem.swapout.maximum": {
+    "key": 400,
+    "summary": "Amount of guest physical memory that is swapped out from the virtual machine to its swap space since it has been powered on."
+  },
+  "mem.swapout.minimum": {
+    "key": 401,
+    "summary": "Amount of guest physical memory that is swapped out from the virtual machine to its swap space since it has been powered on."
+  },
+  "mem.sysUsage.none": {
+    "key": 402,
+    "summary": "Amount of host physical memory consumed by VMkernel"
+  },
+  "mem.sysUsage.average": {
+    "key": 403,
+    "summary": "Amount of host physical memory consumed by VMkernel"
+  },
+  "mem.sysUsage.maximum": {
+    "key": 404,
+    "summary": "Amount of host physical memory consumed by VMkernel"
+  },
+  "mem.sysUsage.minimum": {
+    "key": 405,
+    "summary": "Amount of host physical memory consumed by VMkernel"
+  },
+  "mem.activewrite.average": {
+    "key": 406,
+    "summary": "Amount of guest physical memory that is being actively written by guest. Activeness is estimated by ESXi"
+  },
+  "mem.overheadMax.average": {
+    "key": 407,
+    "summary": "Host physical memory reserved by ESXi, for its data structures, for running the virtual machine"
+  },
+  "mem.totalCapacity.average": {
+    "key": 408,
+    "summary": "Total reservation, available and consumed, for powered-on virtual machines"
+  },
+  "mem.zipped.latest": {
+    "key": 409,
+    "summary": "Amount of guest physical memory pages compressed by ESXi"
+  },
+  "mem.zipSaved.latest": {
+    "key": 410,
+    "summary": "Host physical memory, reclaimed from a virtual machine, by memory compression. This value is less than the value of 'Compressed' memory"
+  },
+  "mem.latency.average": {
+    "key": 411,
+    "summary": "Percentage of time the virtual machine spent waiting to swap in or decompress guest physical memory"
+  },
+  "mem.entitlement.average": {
+    "key": 412,
+    "summary": "Amount of host physical memory the virtual machine deserves, as determined by ESXi"
+  },
+  "mem.lowfreethreshold.average": {
+    "key": 413,
+    "summary": "Threshold of free host physical memory below which ESXi will begin actively reclaiming memory from virtual machines by swapping, compression and ballooning"
+  },
+  "mem.llSwapUsed.none": {
+    "key": 414,
+    "summary": "Storage space consumed on the host swap cache for storing swapped guest physical memory pages"
+  },
+  "mem.llSwapInRate.average": {
+    "key": 415,
+    "summary": "Rate at which guest physical memory is swapped in from the host swap cache"
+  },
+  "mem.llSwapOutRate.average": {
+    "key": 416,
+    "summary": "Rate at which guest physical memory is swapped out to the host swap cache"
+  },
+  "mem.overheadTouched.average": {
+    "key": 417,
+    "summary": "Estimate of the host physical memory, from Overhead consumed, that is actively read or written to by ESXi"
+  },
+  "mem.llSwapUsed.average": {
+    "key": 418,
+    "summary": "Storage space consumed on the host swap cache for storing swapped guest physical memory pages"
+  },
+  "mem.llSwapUsed.maximum": {
+    "key": 419,
+    "summary": "Storage space consumed on the host swap cache for storing swapped guest physical memory pages"
+  },
+  "mem.llSwapUsed.minimum": {
+    "key": 420,
+    "summary": "Storage space consumed on the host swap cache for storing swapped guest physical memory pages"
+  },
+  "mem.llSwapIn.none": {
+    "key": 421,
+    "summary": "Amount of guest physical memory swapped in from host cache"
+  },
+  "mem.llSwapIn.average": {
+    "key": 422,
+    "summary": "Amount of guest physical memory swapped in from host cache"
+  },
+  "mem.llSwapIn.maximum": {
+    "key": 423,
+    "summary": "Amount of guest physical memory swapped in from host cache"
+  },
+  "mem.llSwapIn.minimum": {
+    "key": 424,
+    "summary": "Amount of guest physical memory swapped in from host cache"
+  },
+  "mem.llSwapOut.none": {
+    "key": 425,
+    "summary": "Amount of guest physical memory swapped out to the host swap cache"
+  },
+  "mem.llSwapOut.average": {
+    "key": 426,
+    "summary": "Amount of guest physical memory swapped out to the host swap cache"
+  },
+  "mem.llSwapOut.maximum": {
+    "key": 427,
+    "summary": "Amount of guest physical memory swapped out to the host swap cache"
+  },
+  "mem.llSwapOut.minimum": {
+    "key": 428,
+    "summary": "Amount of guest physical memory swapped out to the host swap cache"
+  },
+  "mem.vmfs.pbc.size.latest": {
+    "key": 429,
+    "summary": "Space used for holding VMFS Pointer Blocks in memory"
+  },
+  "mem.vmfs.pbc.sizeMax.latest": {
+    "key": 430,
+    "summary": "Maximum size the VMFS Pointer Block Cache can grow to"
+  },
+  "mem.vmfs.pbc.workingSet.latest": {
+    "key": 431,
+    "summary": "Amount of file blocks whose addresses are cached in the VMFS PB Cache"
+  },
+  "mem.vmfs.pbc.workingSetMax.latest": {
+    "key": 432,
+    "summary": "Maximum amount of file blocks whose addresses are cached in the VMFS PB Cache"
+  },
+  "mem.vmfs.pbc.overhead.latest": {
+    "key": 433,
+    "summary": "Amount of VMFS heap used by the VMFS PB Cache"
+  },
+  "mem.vmfs.pbc.capMissRatio.latest": {
+    "key": 434,
+    "summary": "Trailing average of the ratio of capacity misses to compulsory misses for the VMFS PB Cache"
+  },
+  "disk.commands.summation": {
+    "key": 435,
+    "summary": "Number of SCSI commands issued during the collection interval"
+  },
+  "disk.deviceReadLatency.average": {
+    "key": 436,
+    "summary": "Average amount of time, in milliseconds, to read from the physical device"
+  },
+  "disk.kernelReadLatency.average": {
+    "key": 437,
+    "summary": "Average amount of time, in milliseconds, spent by VMkernel to process each SCSI read command"
+  },
+  "disk.totalReadLatency.average": {
+    "key": 438,
+    "summary": "Average amount of time taken during the collection interval to process a SCSI read command issued from the guest OS to the virtual machine"
+  },
+  "disk.queueReadLatency.average": {
+    "key": 439,
+    "summary": "Average amount of time spent in the VMkernel queue, per SCSI read command, during the collection interval"
+  },
+  "disk.deviceWriteLatency.average": {
+    "key": 440,
+    "summary": "Average amount of time, in milliseconds, to write to the physical device"
+  },
+  "disk.kernelWriteLatency.average": {
+    "key": 441,
+    "summary": "Average amount of time, in milliseconds, spent by VMkernel to process each SCSI write command"
+  },
+  "disk.totalWriteLatency.average": {
+    "key": 442,
+    "summary": "Average amount of time taken during the collection interval to process a SCSI write command issued by the guest OS to the virtual machine"
+  },
+  "disk.queueWriteLatency.average": {
+    "key": 443,
+    "summary": "Average amount of time spent in the VMkernel queue, per SCSI write command, during the collection interval"
+  },
+  "disk.deviceLatency.average": {
+    "key": 444,
+    "summary": "Average amount of time, in milliseconds, to complete a SCSI command from the physical device"
+  },
+  "disk.kernelLatency.average": {
+    "key": 445,
+    "summary": "Average amount of time, in milliseconds, spent by VMkernel to process each SCSI command"
+  },
+  "disk.queueLatency.average": {
+    "key": 446,
+    "summary": "Average amount of time spent in the VMkernel queue, per SCSI command, during the collection interval"
+  },
+  "disk.maxQueueDepth.average": {
+    "key": 447,
+    "summary": "Maximum queue depth"
+  },
+  "disk.commandsAveraged.average": {
+    "key": 448,
+    "summary": "Average number of SCSI commands issued per second during the collection interval"
+  },
+  "net.droppedRx.summation": {
+    "key": 449,
+    "summary": "Number of receives dropped"
+  },
+  "net.droppedTx.summation": {
+    "key": 450,
+    "summary": "Number of transmits dropped"
+  },
+  "net.bytesRx.average": {
+    "key": 451,
+    "summary": "Average amount of data received per second"
+  },
+  "net.bytesTx.average": {
+    "key": 452,
+    "summary": "Average amount of data transmitted per second"
+  },
+  "net.broadcastRx.summation": {
+    "key": 453,
+    "summary": "Number of broadcast packets received during the sampling interval"
+  },
+  "net.broadcastTx.summation": {
+    "key": 454,
+    "summary": "Number of broadcast packets transmitted during the sampling interval"
+  },
+  "net.multicastRx.summation": {
+    "key": 455,
+    "summary": "Number of multicast packets received during the sampling interval"
+  },
+  "net.multicastTx.summation": {
+    "key": 456,
+    "summary": "Number of multicast packets transmitted during the sampling interval"
+  },
+  "net.errorsRx.summation": {
+    "key": 457,
+    "summary": "Number of packets with errors received during the sampling interval"
+  },
+  "net.errorsTx.summation": {
+    "key": 458,
+    "summary": "Number of packets with errors transmitted during the sampling interval"
+  },
+  "net.unknownProtos.summation": {
+    "key": 459,
+    "summary": "Number of frames with unknown protocol received during the sampling interval"
+  },
+  "sys.heartbeat.latest": {
+    "key": 460,
+    "summary": "Number of heartbeats issued per virtual machine during the interval"
+  },
+  "sys.diskUsage.latest": {
+    "key": 461,
+    "summary": "Amount of disk space usage for each mount point"
+  },
+  "sys.resourceCpuUsage.none": {
+    "key": 462,
+    "summary": "Amount of CPU used by the Service Console and other applications during the interval"
+  },
+  "sys.resourceCpuUsage.average": {
+    "key": 463,
+    "summary": "Amount of CPU used by the Service Console and other applications during the interval"
+  },
+  "sys.resourceCpuUsage.maximum": {
+    "key": 464,
+    "summary": "Amount of CPU used by the Service Console and other applications during the interval"
+  },
+  "sys.resourceCpuUsage.minimum": {
+    "key": 465,
+    "summary": "Amount of CPU used by the Service Console and other applications during the interval"
+  },
+  "sys.resourceMemTouched.latest": {
+    "key": 466,
+    "summary": "Memory touched by the system resource group"
+  },
+  "sys.resourceMemMapped.latest": {
+    "key": 467,
+    "summary": "Memory mapped by the system resource group"
+  },
+  "sys.resourceMemShared.latest": {
+    "key": 468,
+    "summary": "Memory saved due to sharing by the system resource group"
+  },
+  "sys.resourceMemSwapped.latest": {
+    "key": 469,
+    "summary": "Memory swapped out by the system resource group"
+  },
+  "sys.resourceMemOverhead.latest": {
+    "key": 470,
+    "summary": "Overhead memory consumed by the system resource group"
+  },
+  "sys.resourceMemCow.latest": {
+    "key": 471,
+    "summary": "Memory shared by the system resource group"
+  },
+  "sys.resourceMemZero.latest": {
+    "key": 472,
+    "summary": "Zero filled memory used by the system resource group"
+  },
+  "sys.resourceCpuRun1.latest": {
+    "key": 473,
+    "summary": "CPU running average over 1 minute of the system resource group"
+  },
+  "sys.resourceCpuAct1.latest": {
+    "key": 474,
+    "summary": "CPU active average over 1 minute of the system resource group"
+  },
+  "sys.resourceCpuMaxLimited1.latest": {
+    "key": 475,
+    "summary": "CPU maximum limited over 1 minute of the system resource group"
+  },
+  "sys.resourceCpuRun5.latest": {
+    "key": 476,
+    "summary": "CPU running average over 5 minutes of the system resource group"
+  },
+  "sys.resourceCpuAct5.latest": {
+    "key": 477,
+    "summary": "CPU active average over 5 minutes of the system resource group"
+  },
+  "sys.resourceCpuMaxLimited5.latest": {
+    "key": 478,
+    "summary": "CPU maximum limited over 5 minutes of the system resource group"
+  },
+  "sys.resourceCpuAllocMin.latest": {
+    "key": 479,
+    "summary": "CPU allocation reservation (in MHz) of the system resource group"
+  },
+  "sys.resourceCpuAllocMax.latest": {
+    "key": 480,
+    "summary": "CPU allocation limit (in MHz) of the system resource group"
+  },
+  "sys.resourceCpuAllocShares.latest": {
+    "key": 481,
+    "summary": "CPU allocation shares of the system resource group"
+  },
+  "sys.resourceMemAllocMin.latest": {
+    "key": 482,
+    "summary": "Memory allocation reservation (in KB) of the system resource group"
+  },
+  "sys.resourceMemAllocMax.latest": {
+    "key": 483,
+    "summary": "Memory allocation limit (in KB) of the system resource group"
+  },
+  "sys.resourceMemAllocShares.latest": {
+    "key": 484,
+    "summary": "Memory allocation shares of the system resource group"
+  },
+  "sys.osUptime.latest": {
+    "key": 485,
+    "summary": "Total time elapsed, in seconds, since last operating system boot-up"
+  },
+  "sys.resourceMemConsumed.latest": {
+    "key": 486,
+    "summary": "Memory consumed by the system resource group"
+  },
+  "sys.resourceFdUsage.latest": {
+    "key": 487,
+    "summary": "Number of file descriptors used by the system resource group"
+  },
+  "rescpu.actpk1.latest": {
+    "key": 488,
+    "summary": "CPU active peak over 1 minute"
+  },
+  "rescpu.runav1.latest": {
+    "key": 489,
+    "summary": "CPU running average over 1 minute"
+  },
+  "rescpu.actav5.latest": {
+    "key": 490,
+    "summary": "CPU active average over 5 minutes"
+  },
+  "rescpu.actpk5.latest": {
+    "key": 491,
+    "summary": "CPU active peak over 5 minutes"
+  },
+  "rescpu.runav5.latest": {
+    "key": 492,
+    "summary": "CPU running average over 5 minutes"
+  },
+  "rescpu.actav15.latest": {
+    "key": 493,
+    "summary": "CPU active average over 15 minutes"
+  },
+  "rescpu.actpk15.latest": {
+    "key": 494,
+    "summary": "CPU active peak over 15 minutes"
+  },
+  "rescpu.runav15.latest": {
+    "key": 495,
+    "summary": "CPU running average over 15 minutes"
+  },
+  "rescpu.runpk1.latest": {
+    "key": 496,
+    "summary": "CPU running peak over 1 minute"
+  },
+  "rescpu.maxLimited1.latest": {
+    "key": 497,
+    "summary": "Amount of CPU resources over the limit that were refused, average over 1 minute"
+  },
+  "rescpu.runpk5.latest": {
+    "key": 498,
+    "summary": "CPU running peak over 5 minutes"
+  },
+  "rescpu.maxLimited5.latest": {
+    "key": 499,
+    "summary": "Amount of CPU resources over the limit that were refused, average over 5 minutes"
+  },
+  "rescpu.runpk15.latest": {
+    "key": 500,
+    "summary": "CPU running peak over 15 minutes"
+  },
+  "rescpu.maxLimited15.latest": {
+    "key": 501,
+    "summary": "Amount of CPU resources over the limit that were refused, average over 15 minutes"
+  },
+  "rescpu.sampleCount.latest": {
+    "key": 502,
+    "summary": "Group CPU sample count"
+  },
+  "rescpu.samplePeriod.latest": {
+    "key": 503,
+    "summary": "Group CPU sample period"
+  },
+  "managementAgent.memUsed.average": {
+    "key": 504,
+    "summary": "Amount of total configured memory that is available for use"
+  },
+  "managementAgent.swapUsed.average": {
+    "key": 505,
+    "summary": "Sum of the memory swapped by all powered-on virtual machines on the host"
+  },
+  "managementAgent.cpuUsage.average": {
+    "key": 506,
+    "summary": "Amount of Service Console CPU usage"
+  },
+  "storagePath.commandsAveraged.average": {
+    "key": 507,
+    "summary": "Average number of commands issued per second on the storage path during the collection interval"
+  },
+  "storagePath.numberReadAveraged.average": {
+    "key": 508,
+    "summary": "Average number of read commands issued per second on the storage path during the collection interval"
+  },
+  "storagePath.numberWriteAveraged.average": {
+    "key": 509,
+    "summary": "Average number of write commands issued per second on the storage path during the collection interval"
+  },
+  "storagePath.read.average": {
+    "key": 510,
+    "summary": "Rate of reading data on the storage path"
+  },
+  "storagePath.write.average": {
+    "key": 511,
+    "summary": "Rate of writing data on the storage path"
+  },
+  "storagePath.totalReadLatency.average": {
+    "key": 512,
+    "summary": "The average time a read issued on the storage path takes"
+  },
+  "storagePath.totalWriteLatency.average": {
+    "key": 513,
+    "summary": "The average time a write issued on the storage path takes"
+  },
+  "virtualDisk.readIOSize.latest": {
+    "key": 514,
+    "summary": "Average read request size in bytes"
+  },
+  "virtualDisk.writeIOSize.latest": {
+    "key": 515,
+    "summary": "Average write request size in bytes"
+  },
+  "virtualDisk.smallSeeks.latest": {
+    "key": 516,
+    "summary": "Number of seeks during the interval that were less than 64 LBNs apart"
+  },
+  "virtualDisk.mediumSeeks.latest": {
+    "key": 517,
+    "summary": "Number of seeks during the interval that were between 64 and 8192 LBNs apart"
+  },
+  "virtualDisk.largeSeeks.latest": {
+    "key": 518,
+    "summary": "Number of seeks during the interval that were greater than 8192 LBNs apart"
+  },
+  "virtualDisk.readLatencyUS.latest": {
+    "key": 519,
+    "summary": "Read latency in microseconds"
+  },
+  "virtualDisk.writeLatencyUS.latest": {
+    "key": 520,
+    "summary": "Write latency in microseconds"
+  },
+  "virtualDisk.vFlashCacheIops.latest": {
+    "key": 521,
+    "summary": "The average virtual Flash Read Cache I/Os per second value for the virtual disk"
+  },
+  "virtualDisk.vFlashCacheLatency.latest": {
+    "key": 522,
+    "summary": "The average virtual Flash Read Cache latency value for the virtual disk"
+  },
+  "virtualDisk.vFlashCacheThroughput.latest": {
+    "key": 523,
+    "summary": "The average virtual Flash Read Cache throughput value for the virtual disk"
+  },
+  "datastore.datastoreMaxQueueDepth.latest": {
+    "key": 524,
+    "summary": "Storage I/O Control datastore maximum queue depth"
+  },
+  "hbr.hbrNumVms.average": {
+    "key": 525,
+    "summary": "Current number of replicated virtual machines"
+  },
+  "hbr.hbrNetRx.average": {
+    "key": 526,
+    "summary": "Average amount of data received per second"
+  },
+  "hbr.hbrNetTx.average": {
+    "key": 527,
+    "summary": "Average amount of data transmitted per second"
+  },
+  "vflashModule.numActiveVMDKs.latest": {
+    "key": 528,
+    "summary": "Number of caches controlled by the virtual flash module"
+  },
+  "vsanDomObj.readIops.average": {
+    "key": 529,
+    "summary": "Read IOPS"
+  },
+  "vsanDomObj.readThroughput.average": {
+    "key": 530,
+    "summary": "Read throughput in kBps"
+  },
+  "vsanDomObj.readAvgLatency.average": {
+    "key": 531,
+    "summary": "Average read latency in ms"
+  },
+  "vsanDomObj.readMaxLatency.latest": {
+    "key": 532,
+    "summary": "Max read latency in ms"
+  },
+  "vsanDomObj.readCacheHitRate.latest": {
+    "key": 533,
+    "summary": "Cache hit rate percentage"
+  },
+  "vsanDomObj.readCongestion.average": {
+    "key": 534,
+    "summary": "Read congestion"
+  },
+  "vsanDomObj.writeIops.average": {
+    "key": 535,
+    "summary": "Write IOPS"
+  },
+  "vsanDomObj.writeThroughput.average": {
+    "key": 536,
+    "summary": "Write throughput in kBps"
+  },
+  "vsanDomObj.writeAvgLatency.average": {
+    "key": 537,
+    "summary": "Average write latency in ms"
+  },
+  "vsanDomObj.writeMaxLatency.latest": {
+    "key": 538,
+    "summary": "Max write latency in ms"
+  },
+  "vsanDomObj.writeCongestion.average": {
+    "key": 539,
+    "summary": "Write congestion"
+  },
+  "vsanDomObj.recoveryWriteIops.average": {
+    "key": 540,
+    "summary": "Recovery write IOPS"
+  },
+  "vsanDomObj.recoveryWriteThroughput.average": {
+    "key": 541,
+    "summary": "Recovery write through-put in kBps"
+  },
+  "vsanDomObj.recoveryWriteAvgLatency.average": {
+    "key": 542,
+    "summary": "Average recovery write latency in ms"
+  },
+  "vsanDomObj.recoveryWriteMaxLatency.latest": {
+    "key": 543,
+    "summary": "Max recovery write latency in ms"
+  },
+  "vsanDomObj.recoveryWriteCongestion.average": {
+    "key": 544,
+    "summary": "Recovery write congestion"
+  },
+  "net.pnicBytesRx.average": {
+    "key": 801,
+    "summary": "pnicBytesRx"
+  },
+  "net.pnicBytesTx.average": {
+    "key": 802,
+    "summary": "pnicBytesTx"
+  },
+  "gpu.utilization.none": {
+    "key": 803,
+    "summary": "The utilization of a GPU in percentages"
+  },
+  "gpu.utilization.average": {
+    "key": 804,
+    "summary": "The utilization of a GPU in percentages"
+  },
+  "gpu.utilization.maximum": {
+    "key": 805,
+    "summary": "The utilization of a GPU in percentages"
+  },
+  "gpu.utilization.minimum": {
+    "key": 806,
+    "summary": "The utilization of a GPU in percentages"
+  },
+  "gpu.mem.used.none": {
+    "key": 807,
+    "summary": "The amount of GPU memory used in kilobytes"
+  },
+  "gpu.mem.used.average": {
+    "key": 808,
+    "summary": "The amount of GPU memory used in kilobytes"
+  },
+  "gpu.mem.used.maximum": {
+    "key": 809,
+    "summary": "The amount of GPU memory used in kilobytes"
+  },
+  "gpu.mem.used.minimum": {
+    "key": 810,
+    "summary": "The amount of GPU memory used in kilobytes"
+  },
+  "gpu.mem.usage.none": {
+    "key": 811,
+    "summary": "The amount of GPU memory used in percentages of the total available"
+  },
+  "gpu.mem.usage.average": {
+    "key": 812,
+    "summary": "The amount of GPU memory used in percentages of the total available"
+  },
+  "gpu.mem.usage.maximum": {
+    "key": 813,
+    "summary": "The amount of GPU memory used in percentages of the total available"
+  },
+  "gpu.mem.usage.minimum": {
+    "key": 814,
+    "summary": "The amount of GPU memory used in percentages of the total available"
+  },
+  "gpu.temperature.average": {
+    "key": 815,
+    "summary": "The temperature of a GPU in degrees celsius"
+  },
+  "pmem.available.reservation.latest": {
+    "key": 816,
+    "summary": "Persistent memory available reservation on a host."
+  },
+  "datastore.unmapSize.summation": {
+    "key": 1001,
+    "summary": "unmapSize"
+  },
+  "datastore.unmapIOs.summation": {
+    "key": 1002,
+    "summary": "unmapIOs"
+  },
+  "pmem.drsmanaged.reservation.latest": {
+    "key": 1003,
+    "summary": "Persistent memory reservation managed by DRS on a host."
+  }
+}

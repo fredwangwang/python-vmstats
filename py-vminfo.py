@@ -7,30 +7,30 @@ A list of virtual machines can be provided as a comma separated list.
 """
 
 from __future__ import print_function
-from pyVim.connect import SmartConnect, Disconnect
-from pyVmomi import vmodl, vim
-from datetime import timedelta, datetime
 
 import argparse
 import atexit
 import getpass
+import time
+from datetime import timedelta
 
-import ssl
+from pyVim.connect import SmartConnect, SmartConnectNoSSL, Disconnect
+from pyVmomi import vim
+
 
 def GetArgs():
     """
     Supports the command-line arguments listed below.
     """
     parser = argparse.ArgumentParser(description='Process args for retrieving all the Virtual Machines')
-    parser.add_argument('-s', '--host', required=True, action='store', help='Remote host to connect to')
-    parser.add_argument('-o', '--port', type=int, default=443, action='store', help='Port to connect on')
+    parser.add_argument('-H', '--host', required=True, action='store', help='Remote host to connect to')
+    parser.add_argument('-P', '--port', type=int, default=443, action='store', help='Port to connect on')
     parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
-    parser.add_argument('-p', '--password', required=False, action='store',
-                        help='Password to use when connecting to host')
-    parser.add_argument('-m', '--vm', required=True, action='store', help='On eor more Virtual Machines to report on')
-    parser.add_argument('-c', '--cert_check_skip', required=False, action='store_true', help='skip ssl certificate check')
-    parser.add_argument('-i', '--interval', type=int, default=15, action='store',
-                        help='Interval to average the vSphere stats over')
+    parser.add_argument('-p', '--password', required=False, action='store', help='Password to use when connecting to host')
+    parser.add_argument('-m', '--vm', required=True, action='append', help='On eor more Virtual Machines to report on')
+    parser.add_argument('-k', '--skip-ssl-validation', required=False, action='store_true', help='skip ssl certificate check')
+    parser.add_argument('-i', '--interval', type=int, default=15, action='store', help='Time interval in minutes to average the vSphere stats over')
+    parser.add_argument('-r', '--repeat', type=int, default=0, action='store', help='Time in seconds to wait and retrieve data again. Perform one time statistics if not provided')
     args = parser.parse_args()
     return args
 
@@ -53,7 +53,6 @@ def BuildQuery(content, vchtime, counterId, instance, vm, interval):
         print('End perf counter time     :  {}'.format(endTime))
         print(query)
         exit()
-
 
 
 def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
@@ -85,40 +84,40 @@ def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
     for each_vm_hardware in vm_hardware.device:
         if (each_vm_hardware.key >= 2000) and (each_vm_hardware.key < 3000):
             disk_list.append('{} | {:.1f}GB | Thin: {} | {}'.format(each_vm_hardware.deviceInfo.label,
-                                                         each_vm_hardware.capacityInKB/1024/1024,
-                                                         each_vm_hardware.backing.thinProvisioned,
-                                                         each_vm_hardware.backing.fileName))
+                                                                    each_vm_hardware.capacityInKB / 1024 / 1024,
+                                                                    each_vm_hardware.backing.thinProvisioned,
+                                                                    each_vm_hardware.backing.fileName))
         elif (each_vm_hardware.key >= 4000) and (each_vm_hardware.key < 5000):
             network_list.append('{} | {} | {}'.format(each_vm_hardware.deviceInfo.label,
-                                                         each_vm_hardware.deviceInfo.summary,
-                                                         each_vm_hardware.macAddress))
+                                                      each_vm_hardware.deviceInfo.summary,
+                                                      each_vm_hardware.macAddress))
 
-    #CPU Ready Average
+    # CPU Ready Average
     statCpuReady = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'cpu.ready.summation')), "", vm, interval)
     cpuReady = (float(sum(statCpuReady[0].value[0].value)) / statInt)
-    #CPU Usage Average % - NOTE: values are type LONG so needs divided by 100 for percentage
+    # CPU Usage Average % - NOTE: values are type LONG so needs divided by 100 for percentage
     statCpuUsage = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'cpu.usage.average')), "", vm, interval)
     cpuUsage = ((float(sum(statCpuUsage[0].value[0].value)) / statInt) / 100)
-    #Memory Active Average MB
+    # Memory Active Average MB
     statMemoryActive = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'mem.active.average')), "", vm, interval)
     memoryActive = (float(sum(statMemoryActive[0].value[0].value) / 1024) / statInt)
-    #Memory Shared
+    # Memory Shared
     statMemoryShared = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'mem.shared.average')), "", vm, interval)
     memoryShared = (float(sum(statMemoryShared[0].value[0].value) / 1024) / statInt)
-    #Memory Balloon
+    # Memory Balloon
     statMemoryBalloon = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'mem.vmmemctl.average')), "", vm, interval)
     memoryBalloon = (float(sum(statMemoryBalloon[0].value[0].value) / 1024) / statInt)
-    #Memory Swapped
+    # Memory Swapped
     statMemorySwapped = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'mem.swapped.average')), "", vm, interval)
     memorySwapped = (float(sum(statMemorySwapped[0].value[0].value) / 1024) / statInt)
-    #Datastore Average IO
+    # Datastore Average IO
     statDatastoreIoRead = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'datastore.numberReadAveraged.average')),
                                      "*", vm, interval)
     DatastoreIoRead = (float(sum(statDatastoreIoRead[0].value[0].value)) / statInt)
     statDatastoreIoWrite = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'datastore.numberWriteAveraged.average')),
                                       "*", vm, interval)
     DatastoreIoWrite = (float(sum(statDatastoreIoWrite[0].value[0].value)) / statInt)
-    #Datastore Average Latency
+    # Datastore Average Latency
     statDatastoreLatRead = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'datastore.totalReadLatency.average')),
                                       "*", vm, interval)
     DatastoreLatRead = (float(sum(statDatastoreLatRead[0].value[0].value)) / statInt)
@@ -126,7 +125,7 @@ def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
                                        "*", vm, interval)
     DatastoreLatWrite = (float(sum(statDatastoreLatWrite[0].value[0].value)) / statInt)
 
-    #Network usage (Tx/Rx)
+    # Network usage (Tx/Rx)
     statNetworkTx = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'net.transmitted.average')), "", vm, interval)
     networkTx = (float(sum(statNetworkTx[0].value[0].value) * 8 / 1024) / statInt)
     statNetworkRx = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'net.received.average')), "", vm, interval)
@@ -176,17 +175,17 @@ def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
     print('[VM] Datastore Average Latency : Read: {:.0f} ms, Write: {:.0f} ms'.format(DatastoreLatRead,
                                                                                       DatastoreLatWrite))
     print('[VM] Overall Network Usage     : Transmitted {:.3f} Mbps, Received {:.3f} Mbps'.format(networkTx, networkRx))
-    print('[Host] Name                    : {}'.format(summary.runtime.host.name))
-    print('[Host] CPU Detail              : Processor Sockets: {}, Cores per Socket {}'.format(
-        summary.runtime.host.summary.hardware.numCpuPkgs,
-        (summary.runtime.host.summary.hardware.numCpuCores / summary.runtime.host.summary.hardware.numCpuPkgs)))
-    print('[Host] CPU Type                : {}'.format(summary.runtime.host.summary.hardware.cpuModel))
-    print('[Host] CPU Usage               : Used: {} Mhz, Total: {} Mhz'.format(
-        summary.runtime.host.summary.quickStats.overallCpuUsage,
-        (summary.runtime.host.summary.hardware.cpuMhz * summary.runtime.host.summary.hardware.numCpuCores)))
-    print('[Host] Memory Usage            : Used: {:.0f} GB, Total: {:.0f} GB\n'.format(
-        (float(summary.runtime.host.summary.quickStats.overallMemoryUsage) / 1024),
-        (float(summary.runtime.host.summary.hardware.memorySize) / 1024 / 1024 / 1024)))
+    # print('[Host] Name                    : {}'.format(summary.runtime.host.name))
+    # print('[Host] CPU Detail              : Processor Sockets: {}, Cores per Socket {}'.format(
+    #     summary.runtime.host.summary.hardware.numCpuPkgs,
+    #     (summary.runtime.host.summary.hardware.numCpuCores / summary.runtime.host.summary.hardware.numCpuPkgs)))
+    # print('[Host] CPU Type                : {}'.format(summary.runtime.host.summary.hardware.cpuModel))
+    # print('[Host] CPU Usage               : Used: {} Mhz, Total: {} Mhz'.format(
+    #     summary.runtime.host.summary.quickStats.overallCpuUsage,
+    #     (summary.runtime.host.summary.hardware.cpuMhz * summary.runtime.host.summary.hardware.numCpuCores)))
+    # print('[Host] Memory Usage            : Used: {:.0f} GB, Total: {:.0f} GB\n'.format(
+    #     (float(summary.runtime.host.summary.quickStats.overallMemoryUsage) / 1024),
+    #     (float(summary.runtime.host.summary.hardware.memorySize) / 1024 / 1024 / 1024)))
 
 
 def StatCheck(perf_dict, counter_name):
@@ -230,13 +229,11 @@ def main():
         else:
             password = getpass.getpass(prompt="Enter password for host {} and user {}: ".format(args.host, args.user))
         try:
-            if args.cert_check_skip:
-                context = ssl._create_unverified_context()
-                si = SmartConnect(host=args.host,
-                                  user=args.user,
-                                  pwd=password,
-                                  port=int(args.port),
-                                  sslContext=context)
+            if args.skip_ssl_validation:
+                si = SmartConnectNoSSL(host=args.host,
+                                       user=args.user,
+                                       pwd=password,
+                                       port=int(args.port))
             else:
                 si = SmartConnect(host=args.host,
                                   user=args.user,
@@ -251,7 +248,6 @@ def main():
         atexit.register(Disconnect, si)
         content = si.RetrieveContent()
         # Get vCenter date and time for use as baseline when querying for counters
-        vchtime = si.CurrentTime()
 
         # Get all the performance counters
         perf_dict = {}
@@ -262,21 +258,24 @@ def main():
 
         retProps = GetProperties(content, [vim.VirtualMachine], ['name', 'runtime.powerState'], vim.VirtualMachine)
 
-        #Find VM supplied as arg and use Managed Object Reference (moref) for the PrintVmInfo
-        for vm in retProps:
-            if (vm['name'] in vmnames) and (vm['runtime.powerState'] == "poweredOn"):
-                PrintVmInfo(vm['moref'], content, vchtime, args.interval, perf_dict)
-            elif vm['name'] in vmnames:
-                print('ERROR: Problem connecting to Virtual Machine.  {} is likely powered off or suspended'.format(vm['name']))
+        # Find VM supplied as arg and use Managed Object Reference (moref) for the PrintVmInfo
+        while True:
+            vchtime = si.CurrentTime()
+            for vm in retProps:
+                if (vm['name'] in vmnames) and (vm['runtime.powerState'] == "poweredOn"):
+                    PrintVmInfo(vm['moref'], content, vchtime, args.interval, perf_dict)
+                elif vm['name'] in vmnames:
+                    print('ERROR: Problem connecting to Virtual Machine.  {} is likely powered off or suspended'.format(vm['name']))
+            if args.repeat < 1:
+                break
+            time.sleep(args.repeat)
 
-    except vmodl.MethodFault as e:
-        print('Caught vmodl fault : ' + e.msg)
-        return -1
     except Exception as e:
         print('Caught exception : ' + str(e))
         return -1
 
     return 0
+
 
 # Start program
 if __name__ == "__main__":

@@ -3,29 +3,33 @@ python-vmstats
 
 Python script using pyVmomi to get VM statistics
 
-<b>Command line version:</b>
+## Sample Usage: 
 
-<img src="https://github.com/lgeeklee/python-vmstats/blob/master/vm-win-stats-py3.png" alt="Example output">
+`python3 py-vminfo.py -H vcenter.example.com -P 8443 -u admin -p password -m vm-name-1 -m vm-name-2 -k -i 5 -r 20`
 
-The script requires the following parameters:
+to collect vm stats for 5 minutes rolling average every 20 seconds
 
--s HOST, --host HOST : Remote host to connect to.
+## The script has the following parameters:
 
--u USER, --user USER  : User name to use when connecting to host.
+```
+usage: py-vminfo.py [-h] -H HOST [-P PORT] -u USER [-p PASSWORD] -m VM [-k] [-i INTERVAL] [-r REPEAT]
 
--p PASSWORD, --password PASSWORD : Password to use when connecting to host.
+Process args for retrieving all the Virtual Machines
 
--m VM, --vm VM : Virtual Machine to report.
-
--i INT, --interval INT : Interval to average the vSphere stats over in minutes
-
--c, --cert_check_skip : Skip ssl certificate check
-
-The -p/--password is now optional and if not provided on the command line will prompt instead.
-
-
-<b>The web version:</b>
-
-<img src="https://github.com/lgeeklee/python-vmstats/blob/master/python-vmstats-web2.png" alt="Example output">
+optional arguments:
+  -h, --help            show this help message and exit
+  -H HOST, --host HOST  Remote host to connect to
+  -P PORT, --port PORT  Port to connect on
+  -u USER, --user USER  User name to use when connecting to host
+  -p PASSWORD, --password PASSWORD
+                        Password to use when connecting to host
+  -m VM, --vm VM        On eor more Virtual Machines to report on
+  -k, --skip-ssl-validation
+                        skip ssl certificate check
+  -i INTERVAL, --interval INTERVAL
+                        Time interval in minutes to average the vSphere stats over
+  -r REPEAT, --repeat REPEAT
+                        Time in seconds to wait and retrieve data again. Perform one time statistics if not provided
+```
 
 
