@@ -6,11 +6,12 @@ Python program that generates various statistics for one or more virtual machine
 A list of virtual machines can be provided as a comma separated list.
 """
 
-from __future__ import print_function
-
 import argparse
 import atexit
 import getpass
+import json
+import os
+import sys
 import time
 from datetime import timedelta
 
@@ -27,7 +28,8 @@ def GetArgs():
     parser.add_argument('-P', '--port', type=int, default=443, action='store', help='Port to connect on')
     parser.add_argument('-u', '--user', required=True, action='store', help='User name to use when connecting to host')
     parser.add_argument('-p', '--password', required=False, action='store', help='Password to use when connecting to host')
-    parser.add_argument('-m', '--vm', required=True, action='append', help='On eor more Virtual Machines to report on')
+    parser.add_argument('-m', '--vm', required=True, action='append', help='One or more Virtual Machines to report on')
+    parser.add_argument('-f', '--format', default='table', action='store', help='Format for output (table, csv)')
     parser.add_argument('-k', '--skip-ssl-validation', required=False, action='store_true', help='skip ssl certificate check')
     parser.add_argument('-i', '--interval', type=int, default=15, action='store', help='Time interval in minutes to average the vSphere stats over')
     parser.add_argument('-r', '--repeat', type=int, default=0, action='store', help='Time in seconds to wait and retrieve data again. Perform one time statistics if not provided')
@@ -53,6 +55,36 @@ def BuildQuery(content, vchtime, counterId, instance, vm, interval):
         print('End perf counter time     :  {}'.format(endTime))
         print(query)
         exit()
+
+
+firstCsvRun = True  # write header in the first run
+
+
+def CsvVmInfo(vm, content, vchtime, interval, perf_dict):
+    global firstCsvRun
+
+    statInt = interval * 3  # There are 3 20s samples in each minute
+    summary = vm.summary
+
+    vmname = summary.config.name
+
+    statCpuUsage = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'cpu.usage.average')), "", vm, interval)
+    cpuUsage = ((float(sum(statCpuUsage[0].value[0].value)) / statInt) / 100)
+    statCpuUsageMhz = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'cpu.usagemhz.average')), "", vm, interval)
+    cpuUsageMhz = float(sum(statCpuUsageMhz[0].value[0].value)) / statInt
+    statMemoryActive = BuildQuery(content, vchtime, (StatCheck(perf_dict, 'mem.active.average')), "", vm, interval)
+    memoryActive = (float(sum(statMemoryActive[0].value[0].value) / 1024) / statInt)
+
+    if firstCsvRun:
+        firstCsvRun = False
+        print('timestamp, vmname, cpu pct, cpu mhz, total memory mb, memory pct, memory active mb')
+    print('{}, {}, {:.0f}, {:.0f}, {}, {:.0f}, {:.0f}'.format(vchtime, vmname, cpuUsage, cpuUsageMhz, summary.config.memorySizeMB, (memoryActive / summary.config.memorySizeMB) * 100, memoryActive))
+    sys.stdout.flush()
+    # print('[VM] CPU (%)                   : {:.0f} %'.format(cpuUsage))
+    # print('[VM] CPU (Mhz)                 : {:.0f} Mhz'.format(cpuUsageMhz))
+    # print('[VM] Memory                    : {} MB ({:.1f} GB)'.format(summary.config.memorySizeMB, (float(summary.config.memorySizeMB) / 1024)))
+    # print('[VM] Memory Active             : {:.0f} %, {:.0f} MB'.format(
+    #     ((memoryActive / summary.config.memorySizeMB) * 100), memoryActive))
 
 
 def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
@@ -189,8 +221,8 @@ def PrintVmInfo(vm, content, vchtime, interval, perf_dict, ):
 
 
 def StatCheck(perf_dict, counter_name):
-    counter_key = perf_dict[counter_name]
-    return counter_key
+    counter = perf_dict[counter_name]
+    return counter['key']
 
 
 def GetProperties(content, viewType, props, specType):
@@ -242,7 +274,7 @@ def main():
         except IOError as e:
             pass
         if not si:
-            print('Could not connect to the specified host using specified username and password')
+            print(f'Could not connect to {args.host} using specified username and password... skip ssl validation?')
             return -1
 
         atexit.register(Disconnect, si)
@@ -250,20 +282,24 @@ def main():
         # Get vCenter date and time for use as baseline when querying for counters
 
         # Get all the performance counters
-        perf_dict = {}
-        perfList = content.perfManager.perfCounter
-        for counter in perfList:
-            counter_full = "{}.{}.{}".format(counter.groupInfo.key, counter.nameInfo.key, counter.rollupType)
-            perf_dict[counter_full] = counter.key
+        perf_dict = getPerfDict(content)
 
         retProps = GetProperties(content, [vim.VirtualMachine], ['name', 'runtime.powerState'], vim.VirtualMachine)
 
-        # Find VM supplied as arg and use Managed Object Reference (moref) for the PrintVmInfo
+        query = None
+        if args.format == 'table':
+            query = PrintVmInfo
+        elif args.format == 'csv':
+            query = CsvVmInfo
+        else:
+            print(f'ERROR: --format {args.format} is not recognized')
+            exit(1)
+
         while True:
             vchtime = si.CurrentTime()
             for vm in retProps:
                 if (vm['name'] in vmnames) and (vm['runtime.powerState'] == "poweredOn"):
-                    PrintVmInfo(vm['moref'], content, vchtime, args.interval, perf_dict)
+                    query(vm['moref'], content, vchtime, args.interval, perf_dict)
                 elif vm['name'] in vmnames:
                     print('ERROR: Problem connecting to Virtual Machine.  {} is likely powered off or suspended'.format(vm['name']))
             if args.repeat < 1:
@@ -275,6 +311,19 @@ def main():
         return -1
 
     return 0
+
+
+def getPerfDict(content):
+    if os.path.exists('perf_dict.json'):
+        with open('perf_dict.json', 'r') as inf:
+            return json.load(inf)
+
+    perf_dict = {}
+    perfList = content.perfManager.perfCounter
+    for counter in perfList:
+        counter_full = "{}.{}.{}".format(counter.groupInfo.key, counter.nameInfo.key, counter.rollupType)
+        perf_dict[counter_full] = {'key': counter.key, 'summary': counter.nameInfo.summary}
+    return perf_dict
 
 
 # Start program
